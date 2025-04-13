@@ -86,12 +86,6 @@ void abrir_arquivos(char *input_file) {
     char base_name[256];
     remover_extensao(input_file, base_name);
 
-    // Abre arquivo de entrada
-    if ((fpin = fopen(input_file, "r")) == NULL) {
-        printf("Não foi possível abrir o arquivo de imagem %s\n", input_file);
-        exit(1);
-    }
-
     char output_file[256];
 
     // Abre arquivo para imagem em tons de cinza (média aritmética)
@@ -203,13 +197,23 @@ void gravar_imagemN(char *output_file) {
 
 // Solicita o nome do arquivo ao usuário
 void ler_nome(void) {
-    printf("Digite o nome do arquivo da imagem de entrada: ");
-    scanf("%s", input_file);
 
-    // Acrescenta .ppm se não for informado
-    if (!termina_com_ppm(input_file)) {
-        concatena_extensao(input_file, ".ppm");
-    }
+    while(1)
+    {
+        printf("Digite o nome do arquivo da imagem de entrada: ");
+        scanf("%s", input_file);
+
+        if (!termina_com_ppm(input_file)) {
+            concatena_extensao(input_file, ".ppm");
+        }
+
+        if ((fpin = fopen(input_file, "r")) == NULL) {
+            printf("Não foi possível abrir o arquivo de imagem %s\n", input_file);
+        }
+        else {
+            break;
+        }
+    }   
 }
 
 // Função principal de execução de todo o processo

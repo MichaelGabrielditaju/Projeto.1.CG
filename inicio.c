@@ -16,6 +16,10 @@ int main() {
         getchar(); // consome enter
         scanf("%d", &continua);
     } while (continua);
-    printf("Programa encerrado!");
+    printf("*****************************************************************\n");
+    printf("*                                                               *\n");
+    printf("*          Programa encerrado! Obrigado por utilizar!           *\n");
+    printf("*                                                               *\n");
+    printf("*****************************************************************\n");
     return 0;
 }
