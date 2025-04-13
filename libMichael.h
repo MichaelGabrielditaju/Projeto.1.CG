@@ -1,6 +1,11 @@
 #ifndef LIBMICHAEL_H
 #define LIBMICHAEL_H
 
+int compara_strings(const char *s1, const char *s2);
+void copia_string(char *dest, const char *src);
+char *encontra_ultimo_ponto(char *str);
+int termina_com_ppm(char *str);
+void concatena_extensao(char *dest, const char *extensao);
 void pular_comentarios();
 void abrir_arquivos(char *input_file);
 void ler_cabecalho(void);
